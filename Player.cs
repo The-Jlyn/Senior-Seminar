@@ -1,6 +1,7 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -47,6 +48,15 @@ public class Player : MonoBehaviour
             isGrounded = false;
             rig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); 
             }
+        if(transform.position.y < -10)
+        {
+            GameOver();
+        }
 
+    }
+
+    public void GameOver()
+    {
+    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
