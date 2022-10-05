@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -31,6 +31,16 @@ public class Enemy : MonoBehaviour
     {
         movingToStart = true;
     }
+    }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+    //If the collider tag is 'Player'...
+    if(other.CompareTag("Player"))
+    {
+        //Call GameOver() that is inside "Player" class.
+        other.GetComponent<Player>().GameOver();
     }
     }
 }
